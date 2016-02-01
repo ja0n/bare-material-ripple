@@ -1,0 +1,33 @@
+<!-- <script src="./ripple.js"></script> -->
+<script src="./dist/ripple.min.js"></script>
+<style>
+  body {
+    text-align: center;
+  }
+
+  button {
+    position: relative;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    background: #89669b;
+    color: white;
+    padding: 18px 60px;
+    border-radius: 2px;
+    font-size: 22px;
+  }
+
+  .fab {
+    border-radius: 50%;
+    margin:0;
+    padding: 20px;
+  }
+</style>
+
+<button class="ripple">Button</button>
+<button class="ripple" data-ripple-color="#89669b" style="background:white; color:black;">Button</button>
+<button class="ripple" ripple-color="#f45673" style="background:white; color:black;">Button</button>
+
+<script>
+  $.ripple.init();
+</script>

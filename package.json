@@ -1,0 +1,24 @@
+{
+  "name": "bare-material-ripple",
+  "version": "1.0.0",
+  "description": "A bare material ripple implementation plus MutationObserver.",
+  "main": "ripple.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ja0n/ripple.js.git"
+  },
+  "keywords": [
+    "material",
+    "design",
+    "ripple"
+  ],
+  "author": "ja0n",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ja0n/bare-material-ripple/issues"
+  },
+  "homepage": "https://github.com/ja0n/ripple.js#readme"
+}
