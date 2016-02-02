@@ -4,7 +4,7 @@
 
   if (!('$' in window)) window.$ = {};
 
-  var style = '.ripple{overflow:hidden}.ripple-mask{position:absolute;border-radius:50%;width:50px;height:50px;background:#fff;animation:ripple-animation 2s forwards}@keyframes ripple-animation{from{transform:scale(1);opacity:.4}to{transform:scale(100);opacity:0}}';
+  var style = '.ripple{overflow:hidden; -webkit-mask-image: -webkit-radial-gradient(circle, white, black);}.ripple-mask{position:absolute;border-radius:50%;width:50px;height:50px;background:#fff;animation:ripple-animation 2s forwards;}@keyframes ripple-animation{from{transform:translate(-50%,-50%) scale(1);opacity:.4}to{transform:scale(100);opacity:0}}';
   var styleEl = document.createElement('style');
   styleEl.innerText = style;
   document.head.appendChild(styleEl);
@@ -26,12 +26,20 @@
     if (target.rippled) return;
     target.rippled = true;
 
+    // var div = document.createElement('div');
+    // div.classList.add('test');
+    //
+    // target.appendChild(div);
+
     target.addEventListener('click', function (e) {
       e.preventDefault();
 
-      var mask = createRipple(this);
+      // var test = this.querySelector('.test');
+
+      var mask = createRipple(this, e);
 
       this.appendChild(mask);
+      // test.appendChild(mask);
 
       window.setTimeout(function(){
         mask.remove();
@@ -39,17 +47,18 @@
     });
   }
 
-  function createRipple(container) {
-    var mask = document.createElement('span');
-    var xPos = event.pageX - container.offsetLeft;
-    var yPos = event.pageY - container.offsetTop;
+  function createRipple(container, e) {
+    var mask = document.createElement('div');
+    var xPos = e.pageX - container.offsetLeft;
+    var yPos = e.pageY - container.offsetTop;
 
     mask.classList.add('ripple-mask');
+    // mask.classList.add('test');
 
     var dimension = Math.max(container.offsetWidth, container.offsetHeight) * 0.1;
     mask.style.width = mask.style.height = dimension + 'px';
-    mask.style.top = yPos - (dimension/2) + 'px';
-    mask.style.left = xPos - (dimension/2) + 'px';
+    mask.style.top = yPos;
+    mask.style.left = xPos;
 
     mask.style.backgroundColor = (container.getAttribute('data-ripple-color') || container.getAttribute('ripple-color'));
     // mask.style.backgroundColor = this.dataset.rippleColor;
