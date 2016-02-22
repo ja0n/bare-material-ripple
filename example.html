@@ -35,48 +35,6 @@
     overflow: hidden;
   }
 
-  .ripple {
-    -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-  }
-
-  .ripple-mask {
-    -webkit-animation: ripple-animation 2s forwards;
-    -moz-animation: ripple-animation 2s forwards;
-    -o-animation: ripple-animation 2s forwards;
-  }
-
-  @-webkit-keyframes ripple-animation {
-    from {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: .4;
-    }
-    to {
-      transform: scale(100);
-      opacity: 0;
-    }
-  }
-
-  @-moz-keyframes ripple-animation {
-    from {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: .4;
-    }
-    to {
-      transform: scale(100);
-      opacity: 0;
-    }
-  }
-
-  @-o-keyframes ripple-animation {
-    from {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: .4;
-    }
-    to {
-      transform: scale(100);
-      opacity: 0;
-    }
-  }
 </style>
 
 <button class="ripple">Button</button>
